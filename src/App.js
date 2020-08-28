@@ -4,6 +4,7 @@ import Container from './components/Container';
 import Box from './components/Box';
 import DisplayValue from './components/DisplayCount';
 import Button from './components/Button';
+import EventLog from './components/EventLog';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Button>+</Button>
         </div>
         
+        <EventLog />
       </Box>
     </Container>    
   );

@@ -3,6 +3,7 @@ import React from 'react';
 import Container from './components/Container';
 import Box from './components/Box';
 import DisplayValue from './components/DisplayCount';
+import Button from './components/Button';
 
 function App() {
   return (
@@ -10,12 +11,13 @@ function App() {
       <Box>
         <h1>DAPP Counter</h1>
 
-        <DisplayValue value={0} />
+        <DisplayValue value={10} />
 
         <div>
-          <button>Increment</button>
-          <button>Decrement</button>
+          <Button>-</Button>
+          <Button>+</Button>
         </div>
+        
       </Box>
     </Container>    
   );

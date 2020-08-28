@@ -7,9 +7,9 @@ const initialState = {
 function rootReducer(state = initialState, action) {
     switch(action.type) {
         case INCREMENT_COUNTER:
-            return { ...state, count: count++ };
+            return { ...state, count: state.count++ };
         case DECREMENT_COUNTER:
-            return { ...state, count: count-- };
+            return { ...state, count: state.count-- };
         default:
             return state;
     }

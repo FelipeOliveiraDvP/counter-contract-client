@@ -3,7 +3,7 @@ import React from 'react';
 import Container from './components/Container';
 import Box from './components/Box';
 import DisplayValue from './components/DisplayCount';
-import Button from './components/Button';
+import ButtonContainer from './components/ButtonContainer';
 import EventLog from './components/EventLog';
 
 function App() {
@@ -14,10 +14,7 @@ function App() {
 
         <DisplayValue />
 
-        <div>
-          <Button>-</Button>
-          <Button>+</Button>
-        </div>
+        <ButtonContainer />
         
         <EventLog />
       </Box>

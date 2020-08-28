@@ -3,7 +3,7 @@ import Wrapper from './styled';
 
 const Button = props => {
     return (
-        <Wrapper>
+        <Wrapper onClick={props.onClick}>
             {props.children}
         </Wrapper>
     );

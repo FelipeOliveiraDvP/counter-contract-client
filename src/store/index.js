@@ -1,6 +1,11 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from '../reducers/index';
 
-const store = createStore(rootReducer);
+import { eventLogMiddleware } from '../middlewares';
+
+const store = createStore(
+    rootReducer,
+    applyMiddleware(eventLogMiddleware)
+);
 
 export default store;

@@ -12,7 +12,7 @@ function App() {
       <Box>
         <h1>DAPP Counter</h1>
 
-        <DisplayValue value={10} />
+        <DisplayValue />
 
         <div>
           <Button>-</Button>

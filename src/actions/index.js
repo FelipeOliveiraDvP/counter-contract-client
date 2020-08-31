@@ -1,13 +1,9 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/action-types';
 import drizzle from '../drizzle';
+const { Counter } = drizzle.contracts;
 
 export function incrementCounter() {
     return function(dispatch) {
-        const { Counter } = drizzle.contracts;
-        // if (Counter !== undefined) {
-            
-        // }
-
         return Counter.methods.increment().call()
             .then(res => {
                 console.log(res);

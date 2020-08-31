@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { DrizzleContext } from '@drizzle/react-plugin';
 
 import Wrapper from './styled';
 
 const DisplayCount = props => {
-    const drizzle = useSelector(state => state.drizzle.drizzle);
     const [count, setCount] = useState(0);
-    
-    useEffect(() => {
-        const getCount = async () => {
-            const { Counter } = drizzle.contracts;
-            const result = await Counter.methods.getCount().call();
-            setCount(result);
-        }
-        getCount();
-    }, []);
-    
-    
+
     return (
-        <Wrapper>
-            {count}
-        </Wrapper>
+        <DrizzleContext.Consumer>
+            {drizzleContext => {
+                const { drizzle, initialized } = drizzleContext;
+                const { Counter } = drizzle.contracts;
+
+                if(!initialized) return "Loading...";
+
+                const { getCount } = Counter.methods;
+
+                getCount().call().then(res => { setCount(res); });
+                                
+                return (
+                    <Wrapper>
+                        {count}
+                    </Wrapper>
+                )
+            }}
+        </DrizzleContext.Consumer>        
     );
 }
 

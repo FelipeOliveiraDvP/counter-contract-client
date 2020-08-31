@@ -1,10 +1,15 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+
 import rootReducer from '../reducers/index';
+import drizzleReducer from '../reducers/drizzle';
 
 import { eventLogMiddleware } from '../middlewares';
 
 const store = createStore(
-    rootReducer,
+    combineReducers({
+        root: rootReducer,
+        drizzle: drizzleReducer
+    }),
     applyMiddleware(eventLogMiddleware)
 );
 

@@ -1,10 +1,22 @@
-import React from 'react';
-import Wrapper from './styled';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const DisplayCount = props => {
-    const count = useSelector(state => state.count);
+import Wrapper from './styled';
 
+const DisplayCount = props => {
+    const drizzle = useSelector(state => state.drizzle.drizzle);
+    const [count, setCount] = useState(0);
+    
+    useEffect(() => {
+        const getCount = async () => {
+            const { Counter } = drizzle.contracts;
+            const result = await Counter.methods.getCount().call();
+            setCount(result);
+        }
+        getCount();
+    }, []);
+    
+    
     return (
         <Wrapper>
             {count}

@@ -6,16 +6,15 @@ const initialState = {
 }
 
 function rootReducer(state = initialState, action) {
-    let { count } = state;
+    const { type, payload } = action;
 
-    switch(action.type) {
+    switch(type) {
         case INCREMENT_COUNTER:            
-            return { ...state, count: count + 1 };
+            return { ...state, count: payload.count };
         case DECREMENT_COUNTER:            
-            return { ...state, count: count - 1 };
-        case LOG_EVENT:
-            console.log(action.payload);
-            return { ...state, lastEvent: action.payload };        
+            return { ...state, count: payload.count };
+        case LOG_EVENT:            
+            return { ...state, lastEvent: payload.event };        
         default:
             return state;
     }

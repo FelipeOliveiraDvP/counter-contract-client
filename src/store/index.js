@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
 
 import rootReducer from '../reducers/index';
 import drizzleReducer from '../reducers/drizzle';
@@ -10,7 +11,7 @@ const store = createStore(
         root: rootReducer,
         drizzle: drizzleReducer
     }),
-    applyMiddleware(eventLogMiddleware)
+    applyMiddleware(eventLogMiddleware, thunk)
 );
 
 export default store;

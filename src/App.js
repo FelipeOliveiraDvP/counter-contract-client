@@ -6,9 +6,7 @@ import DisplayValue from './components/DisplayCount';
 import ButtonContainer from './components/ButtonContainer';
 import EventLog from './components/EventLog';
 
-const App = props => {
-
-  console.log(props)
+const App = () => {  
   return (
     <Container>
       <Box>
